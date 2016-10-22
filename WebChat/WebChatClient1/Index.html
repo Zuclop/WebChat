@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>Client Site 1</h1>
+
+    <h2>Чат</h2>
+
+    <div class="main">
+        <div id="loginBlock">
+            Введите логин:<br />
+            <input id="txtUserName" type="text" />
+            <input id="btnLogin" type="button" value="Войти" />
+        </div>
+        <div id="chatBody">
+            <div id="header"></div>
+            <div id="chatroom"></div>
+            <div id="inputForm">
+                <input type="text" id="message" />
+                <input type="button" id="sendmessage" value="Отправить" />
+            </div>
+            
+        </div>
+        <input id="agentid" type="hidden" />
+        <input id="agentname" type="hidden" />
+        <input id="clientname" type="hidden" />
+    </div>
+
+    <script src="http://localhost:54347/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="http://localhost:54347/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="http://localhost:54347/signalr/hubs"></script>
+    <script src="http://localhost:54347/Scripts/Client.js"></script>
+</body>
+
+</html>
