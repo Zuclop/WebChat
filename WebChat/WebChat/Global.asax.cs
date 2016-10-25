@@ -10,6 +10,7 @@ using System.Web.Http;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
+using WebChat.App_Start;
 
 namespace WebChat
 {
@@ -21,6 +22,8 @@ namespace WebChat
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // SimpleIngector
             var container = new Container();

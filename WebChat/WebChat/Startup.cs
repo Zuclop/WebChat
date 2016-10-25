@@ -4,6 +4,8 @@ using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Owin;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.AspNet.Identity;
 
 [assembly: OwinStartup(typeof(WebChat.Startup))]
 
@@ -13,6 +15,15 @@ namespace WebChat
     {
         public void Configuration(IAppBuilder app)
         {
+            // настраиваем контекст и менеджер
+            app.CreatePerOwinContext<ApplicationContext>(ApplicationContext.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                LoginPath = new PathString("/Account/Login"),
+            });
+
             // Branch the pipeline here for requests that start with "/signalr"
             app.Map("/signalr", map =>
             {

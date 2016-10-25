@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace WebChat.Models
 {
-    public class AgentViewModel
+    public class AgentViewModel : IdentityUser
     {
         //public int AgentId { get; set; }
         public string Name { get; set; }
